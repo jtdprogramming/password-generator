@@ -1,17 +1,40 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
 function generatePassword() {
+  console.log('mark');
+
+  // Prompt user password criteria
+  var passLength = window.prompt('Please enter a numerical password length');
+  password = passLength;
+
   
+  
+  // if (promptLength === "" || promptLength === null) {
+  //   window.alert("Entry must be a number between 8 and 128!")
+    
+  //   return generatePassword();
+  // }
+  
+
+  // Password length: 8 < 128
+  // Password characters: lowercase, uppercase, numbers, special characters
+  // Validate input
+  // Generate random pass
+  return password;
 }
+
+
+
+  
+
 
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  console.log("hello"); 
 
   passwordText.value = password; //Display password value on screen
 
