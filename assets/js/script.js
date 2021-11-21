@@ -49,15 +49,12 @@ function generatePassword() {
   } else if (special === false) {
     special = [""]
   }
-/*
-completed: choice and criteria
-to do: generate password based on determined length using for loop and return password
-*/
-  // Concatenate chosen criteria into one string
-  var passString = lowerCase + upperCase + numbers + special;
-  console.log(passString); // test for concatenation
 
-  password = passString; //test 
+  // Concatenate chosen criteria into one string to use to generate random password
+  var passString = lowerCase + upperCase + numbers + special;
+  
+
+  password = passString; //test: working
 
   // Generate random pass
   return password;
