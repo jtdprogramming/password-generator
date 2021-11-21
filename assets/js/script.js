@@ -7,7 +7,7 @@ function generatePassword() {
   // Prompt user password criteria
   var passLength = window.prompt('Please enter a numerical password length');
     
-  // Get password length and confirm choices
+  // Get password length and confirm criteria choices
   if (passLength >= 8 && passLength <= 128) {
     var lowerCase = confirm("Include lower case letters?");
     var upperCase = confirm("Include upper case letters?");
@@ -53,8 +53,9 @@ function generatePassword() {
 completed: choice and criteria
 to do: generate password based on determined length using for loop and return password
 */
-
+  // Concatenate chosen criteria into one string
   var passString = lowerCase + upperCase + numbers + special;
+  console.log(passString); // test for concatenation
 
   password = passString; //test 
 
