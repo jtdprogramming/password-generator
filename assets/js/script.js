@@ -3,7 +3,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// TODO-extra: refactor into while loop if length is invalid
+// generate password
 function generatePassword() {
   
   // Prompt user password length
@@ -11,10 +11,10 @@ function generatePassword() {
     
   // Check password length and confirm criteria choices
   if (passLength >= 8 && passLength <= 128) {
-    var lowerCase = window.confirm("Include lower case letters?");
-    var upperCase = window.confirm("Include upper case letters?");
-    var numbers = window.confirm("Include numbers?");
-    var special = window.confirm("Include special characters?");
+    var lowercaseChar = window.confirm("Include lowercase characters?");
+    var uppercaseChar = window.confirm("Include uppercase characters?");
+    var numericChar = window.confirm("Include numeric characters?");
+    var specialChar = window.confirm("Include special characters?");
   }
   // Invalid password length alerts user and calls function to start again
   else {
@@ -22,49 +22,45 @@ function generatePassword() {
     return generatePassword();
   }
 
-  // Force minimum criteria choice
-  if (lowerCase === false && upperCase === false && numbers === false && special === false){
+  // Invalid choice of minimum 1 character types alerts user m
+  if (lowercaseChar === false && uppercaseChar === false && numericChar === false && specialChar === false){
     window.alert("You must choose at least one, try again!");
     return generatePassword();
-  // } else if (lowerCase || upperCase || numbers || special) {
-
-  // }
-
-  //TODO: refactor in a while loop to confirm choices or choose again
-  //conditionals to use chosen criteria and set string to value else undefined
-  if (lowerCase) {
-    lowerCase = ["abcdefghijklmnopqrstuvwxyz"]
-  } else if (lowerCase === false) {
-    lowerCase = [""]
   }
 
-  if (upperCase) {
-    upperCase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
-  } else if (upperCase === false) {
-    upperCase = [""]
+  // Conditionals to use chosen criteria and set string to value else undefined
+  if (lowercaseChar) {
+    lowercaseChar = ["abcdefghijklmnopqrstuvwxyz"]
+  } else if (lowercaseChar === false) {
+    lowercaseChar = [""]
   }
 
-  if (numbers) {
-    numbers = ["0123456789"]
-  } else if (numbers === false) {
-    numbers = [""]
+  if (uppercaseChar) {
+    uppercaseChar = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+  } else if (uppercaseChar === false) {
+    uppercaseChar = [""]
   }
 
-  if (special) {
-    special = ["!@#$%^&*()'-+,./:;<=>?@\_`{|}~"]
-  } else if (special === false) {
-    special = [""]
+  if (numericChar) {
+    numericChar = ["0123456789"]
+  } else if (numericChar === false) {
+    numericChar = [""]
+  }
+
+  if (specialChar) {
+    specialChar = ["!@#$%^&*()'-+,./:;<=>?@\_`{|}~"]
+  } else if (specialChar === false) {
+    specialChar = [""]
   }
 
   // Concatenate chosen criteria into var to use to generate random password
-  var passString = lowerCase + upperCase + numbers + special;
+  var passString = lowercaseChar + uppercaseChar + numericChar + specialChar;
   var password = "";
 
-  //for loop to choose random char from passString var based on length
+  // for loop to choose random char from passString var based on length input
   for (var i = 0; i < passLength; i++) {
     var randomPass = passString[Math.floor(Math.random() * passString.length)];
     password += randomPass;
-    console.log(password);
   }
 
   // return generated password
