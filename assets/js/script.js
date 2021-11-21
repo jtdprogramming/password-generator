@@ -1,12 +1,21 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function generatePassword() {
+  
+}
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  console.log("hello"); 
+
+  passwordText.value = password; //Display password value on screen
+
+  // generatePassword() function
 
 }
 
@@ -20,9 +29,6 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-/*
-Quokka practice with functions
-*/
 
 
 // const person = {
