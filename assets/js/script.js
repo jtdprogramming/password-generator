@@ -1,31 +1,37 @@
+// James D. - Challenge 03 - Javascript Password Generator 
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
+// TODO-extra: refactor into while loop if length is invalid
 function generatePassword() {
   
-  // Prompt user password criteria
+  // Prompt user password length
   var passLength = window.prompt('Please enter a numerical password length');
     
-  // Get password length and confirm criteria choices
+  // Check password length and confirm criteria choices
   if (passLength >= 8 && passLength <= 128) {
-    var lowerCase = confirm("Include lower case letters?");
-    var upperCase = confirm("Include upper case letters?");
-    var numbers = confirm("Include numbers?");
-    var special = confirm("Include special characters?");
+    var lowerCase = window.confirm("Include lower case letters?");
+    var upperCase = window.confirm("Include upper case letters?");
+    var numbers = window.confirm("Include numbers?");
+    var special = window.confirm("Include special characters?");
   }
+  // Invalid password length alerts user and calls function to start again
   else {
     window.alert("Please choose a number between 8 and 128");
     return generatePassword();
   }
 
-  // Force criteria choice ** update to return to "choice function" instead of asking for length
+  // Force minimum criteria choice
   if (lowerCase === false && upperCase === false && numbers === false && special === false){
     window.alert("You must choose at least one, try again!");
     return generatePassword();
-  }
+  // } else if (lowerCase || upperCase || numbers || special) {
 
-  //conditionals to determine criteria
+  // }
+
+  //TODO: refactor in a while loop to confirm choices or choose again
+  //conditionals to use chosen criteria and set string to value else undefined
   if (lowerCase) {
     lowerCase = ["abcdefghijklmnopqrstuvwxyz"]
   } else if (lowerCase === false) {
@@ -45,18 +51,18 @@ function generatePassword() {
   }
 
   if (special) {
-    special = ["!@#$%^&*()"]
+    special = ["!@#$%^&*()'-+,./:;<=>?@\_`{|}~"]
   } else if (special === false) {
     special = [""]
   }
 
-  // Concatenate chosen criteria into one string to use to generate random password
+  // Concatenate chosen criteria into var to use to generate random password
   var passString = lowerCase + upperCase + numbers + special;
   var password = "";
 
   //for loop to choose random char from passString var based on length
   for (var i = 0; i < passLength; i++) {
-    var randomPass = passString[Math.floor(Math.random() * passString.Length)];
+    var randomPass = passString[Math.floor(Math.random() * passString.length)];
     password += randomPass;
     console.log(password);
   }
