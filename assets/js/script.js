@@ -3,8 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 
 function generatePassword() {
-  console.log('mark');
-
+  
   // Prompt user password criteria
   var passLength = window.prompt('Please enter a numerical password length');
     
@@ -44,7 +43,15 @@ function generatePassword() {
   } else if (numbers === false) {
     numbers = [""]
   }
-  
+
+  if (special) {
+    special = ["!@#$%^&*()"]
+  } else if (special === false) {
+    special = [""]
+  }
+
+  var passString = lowerCase + upperCase + numbers
+
   // Generate random pass
   return password;
 }
