@@ -7,19 +7,21 @@ function generatePassword() {
 
   // Prompt user password criteria
   var passLength = window.prompt('Please enter a numerical password length');
-  password = passLength;
-
-  
-  
-  // if (promptLength === "" || promptLength === null) {
-  //   window.alert("Entry must be a number between 8 and 128!")
     
-  //   return generatePassword();
-  // }
-  
+  // Get password length and confirm choices
+  if (passLength >= 8 && <= 128) {
+    var lowerCase = confirm("Include lower case letters?");
+    var upperCase = confirm("Include upper case letters?");
+    var numbers = confirm("Include numbers?");
+    var special = confirm("Include special characters?");
+  }
 
-  // Password length: 8 < 128
-  // Password characters: lowercase, uppercase, numbers, special characters
+  // Force criteria choice
+  if (lowerCase === false && upperCase === false && numbers === false && special === false){
+    window.alert("You must choose at least one")
+  }
+
+  
   // Validate input
   // Generate random pass
   return password;
