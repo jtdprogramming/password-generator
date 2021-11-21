@@ -52,11 +52,16 @@ function generatePassword() {
 
   // Concatenate chosen criteria into one string to use to generate random password
   var passString = lowerCase + upperCase + numbers + special;
-  
+  var password = "";
 
-  password = passString; //test: working
+  //for loop to choose random char from passString var based on length
+  for (var i = 0; i < passLength; i++) {
+    var randomPass = passString[Math.floor(Math.random() * passString.Length)];
+    password += randomPass;
+    console.log(password);
+  }
 
-  // Generate random pass
+  // return generated password
   return password;
 }
 
