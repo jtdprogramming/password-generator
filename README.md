@@ -1,5 +1,13 @@
 # Password Generator
 [password-generator](https://jtdprogramming.github.io/password-generator/)
+
+![password-generator](https://github.com/jtdprogramming/password-generator/blob/main/assets/images/passgen-screenshot.PNG)
+* * *
+
+## Table of Contents
+  - [About](#about)
+  - [Acceptance-Criteria](#acceptance-criteria)
+* * *
 ## About
 
 The objective is to create an application that generates a random password based on user-selected criteria after the click of a button. Acceptance criteria must be met.
@@ -23,3 +31,4 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
+* * *
